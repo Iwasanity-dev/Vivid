@@ -1,0 +1,121 @@
+/*Vivid Theme - Ein modernes, minimalistisches Design für Jellyfin*/
+:root {
+  /* Hauptfarbpalette */
+  --vivid-bg-dark: #0a0a12;
+  --vivid-bg-gradient: linear-gradient(135deg, #0a0a12, #1a1040);
+  --vivid-surface: #15152a;
+  --vivid-surface-alt: #1e1e3a;
+  --vivid-primary: #7c4dff;
+  --vivid-secondary: #ff4d9e;
+  --vivid-accent: #00e5bf;
+  --vivid-text: #f5f5ff;
+  --vivid-text-secondary: #a9a7c7;
+  --vivid-border: rgba(124, 77, 255, 0.2);
+  --vivid-shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --vivid-shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --vivid-shadow-intense: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --vivid-glow-primary: 0 0 15px rgba(124, 77, 255, 0.5);
+  --vivid-glow-secondary: 0 0 15px rgba(255, 77, 158, 0.5);
+  --vivid-glow-accent: 0 0 15px rgba(0, 229, 191, 0.5);
+  --vivid-gradient-primary: linear-gradient(135deg, #7c4dff, #ff4d9e);
+  --vivid-gradient-alt: linear-gradient(135deg, #ff4d9e, #00e5bf);
+  --vivid-card-radius: 12px;
+  --vivid-btn-radius: 50px;
+  --vivid-blur: 15px;
+  --vivid-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Basis-Styling */
+body, html { background: var(--vivid-bg-gradient) fixed !important; color: var(--vivid-text) !important; font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif !important; letter-spacing: 0.01em !important; transition: var(--vivid-transition) !important; }
+.backgroundContainer, .backgroundContainer:not(.withBackdrop):not(.backgroundContainer-transparent), .noBackdropTransparency .detailPageSecondaryContainer { background: var(--vivid-bg-gradient) fixed !important; }
+
+/* Header und Navigation */
+.skinHeader { background-color: transparent !important; transition: var(--vivid-transition) !important; }
+.headerTop { background: rgba(10, 10, 18, 0.7) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border-bottom: 1px solid var(--vivid-border) !important; }
+.headerLogo, .pageTitleWithDefaultLogo { background-image: url("https://cdn2.steamgriddb.com/logo/vivid_logo_white.png") !important; background-size: contain !important; background-repeat: no-repeat !important; filter: drop-shadow(0 0 8px rgba(124, 77, 255, 0.4)) !important; }
+.headerRight, .headerTabs { background: rgba(21, 21, 42, 0.5) !important; border-radius: var(--vivid-btn-radius) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; box-shadow: var(--vivid-shadow-soft) !important; }
+.mainDrawer { background: rgba(15, 15, 30, 0.95) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border-right: 1px solid var(--vivid-border) !important; box-shadow: var(--vivid-shadow-medium) !important; }
+
+/* Navigation Items */
+.navMenuOption { margin: 6px 12px !important; border-radius: 12px !important; transition: var(--vivid-transition) !important; border-left: 3px solid transparent !important; overflow: hidden !important; width: 85% !important; text-align: center !important; }
+.navMenuOption:hover:not(.navMenuOption-selected) { background: rgba(124, 77, 255, 0.1) !important; transform: translateX(3px) scale(1.02) !important; border-left: 3px solid var(--vivid-primary) !important; }
+.navMenuOption-selected { background: var(--vivid-gradient-primary) !important; box-shadow: var(--vivid-glow-primary) !important; }
+.navMenuOption-selected::before { content: "" !important; position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0)) !important; pointer-events: none !important; }
+
+/* Karten und Container */
+.card, .cardBox, .dialog, .itemDetailImage { background: var(--vivid-surface) !important; border-radius: var(--vivid-card-radius) !important; border: 1px solid var(--vivid-border) !important; box-shadow: var(--vivid-shadow-soft) !important; transition: var(--vivid-transition) !important; overflow: hidden !important; }
+.card:hover, .cardBox:hover { transform: translateY(-4px) !important; box-shadow: var(--vivid-shadow-medium), 0 0 0 1px var(--vivid-primary) !important; }
+.cardImageContainer { transition: transform 0.3s ease, filter 0.3s ease !important; }
+.cardImageContainer:hover { transform: scale(1.02) !important; }
+.card-withuserdata.card-hoverable.card:hover > .cardBox-bottompadded.cardBox > .cardScalable::before { content: "" !important; position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; background: linear-gradient(to bottom, rgba(10,10,18,0), rgba(10,10,18,0.7)) !important; z-index: 1 !important; }
+
+/* Überschriften und Text */
+h1, h2, h3, h4, h5 { font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important; font-weight: 600 !important; letter-spacing: -0.02em !important; }
+h1 { font-size: 2.5rem !important; background: var(--vivid-gradient-primary) !important; -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important; display: inline-block !important; }
+h2::after { content: "" !important; position: absolute !important; bottom: -5px !important; left: 0 !important; width: 40px !important; height: 3px !important; background: var(--vivid-gradient-primary) !important; border-radius: 3px !important; }
+
+/* Schaltflächen und Inputs */
+.button, button, [type="button"], .emby-button.raised { background: var(--vivid-gradient-primary) !important; border: none !important; border-radius: var(--vivid-btn-radius) !important; font-weight: 500 !important; letter-spacing: 0.03em !important; position: relative !important; overflow: hidden !important; transition: var(--vivid-transition) !important; box-shadow: var(--vivid-shadow-soft) !important; }
+.button:hover, button:hover, [type="button"]:hover, .emby-button.raised:hover { transform: translateY(-2px) !important; box-shadow: var(--vivid-shadow-medium), var(--vivid-glow-primary) !important; }
+.button::before, button::before, [type="button"]::before, .emby-button.raised::before { content: "" !important; position: absolute !important; top: 0 !important; left: -100% !important; width: 100% !important; height: 100% !important; background: var(--vivid-gradient-alt) !important; transition: transform 0.5s ease !important; z-index: -1 !important; }
+.button:hover::before, button:hover::before, [type="button"]:hover::before, .emby-button.raised:hover::before { transform: translateX(100%) !important; }
+input, select, textarea { background: rgba(10, 10, 18, 0.4) !important; border: 1px solid var(--vivid-border) !important; border-radius: 8px !important; color: var(--vivid-text) !important; padding: 0.7rem 1rem !important; transition: var(--vivid-transition) !important; }
+input:focus, select:focus, textarea:focus { border-color: var(--vivid-primary) !important; box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.2) !important; background: rgba(15, 15, 30, 0.6) !important; }
+
+/* Status- und Fortschrittsanzeigen */
+.itemProgressBarForeground, .playedIndicator { background: var(--vivid-gradient-primary) !important; }
+.itemProgressBar { background: rgba(124, 77, 255, 0.2) !important; }
+.progressring { stroke: var(--vivid-primary) !important; }
+.countIndicator, .fullSyncIndicator, .playedIndicator { border-radius: 4px !important; background: var(--vivid-gradient-primary) !important; box-shadow: var(--vivid-shadow-soft) !important; }
+
+/* Detail-Seite */
+.detailLogo { filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) !important; }
+.detailPagePrimaryContainer { background: linear-gradient(to bottom, rgba(10, 10, 18, 0), var(--vivid-bg-dark)) !important; }
+.mainDetailButtons { background: rgba(21, 21, 42, 0.7) !important; border-radius: var(--vivid-btn-radius) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; }
+.detailSectionContent, .trackSelections, .detailsGroupItem { background: rgba(21, 21, 42, 0.5) !important; border-radius: var(--vivid-card-radius) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border: 1px solid var(--vivid-border) !important; }
+
+/* Scrollbalken */
+::-webkit-scrollbar { width: 8px !important; }
+::-webkit-scrollbar-track { background: var(--vivid-bg-dark) !important; }
+::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--vivid-primary), var(--vivid-secondary)) !important; border-radius: 4px !important; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(to bottom, var(--vivid-secondary), var(--vivid-accent)) !important; }
+
+/* Player */
+.mdl-slider-background-lower { background: var(--vivid-gradient-primary) !important; border-radius: 50px !important; }
+.sliderBubble { background: rgba(21, 21, 42, 0.8) !important; border-radius: var(--vivid-card-radius) !important; backdrop-filter: blur(var(--vivid-blur)) !important; }
+.upNextDialog-button:hover { transform: scale(1.05) !important; background: var(--vivid-primary) !important; }
+.upNextContainer:not(#skipIntro) { border-radius: var(--vivid-card-radius) !important; background: rgba(15, 15, 30, 0.8) !important; backdrop-filter: blur(var(--vivid-blur)) !important; }
+
+/* Login-Seite */
+#loginPage { background: var(--vivid-bg-gradient) !important; display: flex !important; justify-content: center !important; align-items: center !important; overflow: hidden !important; position: relative !important; }
+#loginPage::before { content: "" !important; position: absolute !important; width: 600px !important; height: 600px !important; background: var(--vivid-gradient-primary) !important; filter: blur(150px) !important; opacity: 0.15 !important; border-radius: 100% !important; z-index: 0 !important; animation: floating 20s infinite alternate ease-in-out !important; }
+#loginPage::after { content: "" !important; position: absolute !important; width: 400px !important; height: 400px !important; background: var(--vivid-gradient-alt) !important; filter: blur(130px) !important; opacity: 0.1 !important; border-radius: 100% !important; bottom: -100px !important; right: -100px !important; z-index: 0 !important; animation: floating 15s infinite alternate-reverse ease-in-out !important; }
+#loginPage .padded-left.padded-right.padded-bottom-page.margin-auto-y { background: rgba(21, 21, 42, 0.4) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border-radius: 16px !important; border: 1px solid var(--vivid-border) !important; box-shadow: var(--vivid-shadow-intense), 0 0 0 1px rgba(124, 77, 255, 0.1) !important; padding: 50px !important; width: 400px !important; position: relative !important; z-index: 1 !important; transform: translateY(0) !important; animation: fadeInUp 1s ease-out !important; }
+#loginPage .emby-input { background: rgba(15, 15, 30, 0.4) !important; border: 1px solid rgba(124, 77, 255, 0.2) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; }
+#loginPage .emby-button.raised { background: var(--vivid-gradient-primary) !important; box-shadow: var(--vivid-shadow-medium) !important; margin-top: 20px !important; }
+#loginPage .emby-button.raised:hover { transform: translateY(-3px) !important; box-shadow: var(--vivid-shadow-intense), var(--vivid-glow-primary) !important; }
+#loginPage .logo { filter: drop-shadow(0 0 8px rgba(124, 77, 255, 0.5)) !important; animation: pulsate 3s infinite alternate ease-in-out !important; }
+#loginPage .visualLoginForm { position: relative !important; z-index: 2 !important; }
+#loginPage .loginCard { animation: fadeInRight 0.5s ease-out !important; animation-fill-mode: both !important; }
+#loginPage .loginCard:nth-child(2) { animation-delay: 0.1s !important; }
+#loginPage .loginCard:nth-child(3) { animation-delay: 0.2s !important; }
+#loginPage .loginCard:nth-child(4) { animation-delay: 0.3s !important; }
+#loginPage .squareCard.overflowSquareCard.card { background: rgba(21, 21, 42, 0.4) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border: 1px solid var(--vivid-border) !important; transition: var(--vivid-transition) !important; }
+#loginPage .squareCard.overflowSquareCard.card:hover { transform: translateY(-5px) scale(1.02) !important; box-shadow: var(--vivid-shadow-medium), var(--vivid-glow-primary) !important; border-color: var(--vivid-primary) !important; }
+#loginPage .btnForgotPassword { background: transparent !important; font-weight: normal !important; width: 150px !important; text-align: right !important; color: var(--vivid-text-secondary) !important; margin-top: 10px !important; opacity: 0.7 !important; transition: var(--vivid-transition) !important; }
+#loginPage .btnForgotPassword:hover { opacity: 1 !important; color: var(--vivid-primary) !important; }
+
+/* Animationen */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulsate { 0% { filter: drop-shadow(0 0 8px rgba(124, 77, 255, 0.3)); } 100% { filter: drop-shadow(0 0 15px rgba(124, 77, 255, 0.7)); } }
+@keyframes floating { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 30px); } }
+
+/* Alternative Themes */
+.cosmic-theme { --vivid-bg-dark: #0a001a; --vivid-bg-gradient: linear-gradient(135deg, #0a001a, #20004d); --vivid-surface: #130026; --vivid-surface-alt: #1c0033; --vivid-primary: #9000ff; --vivid-secondary: #ff00aa; --vivid-accent: #00ffd5; --vivid-gradient-primary: linear-gradient(135deg, #9000ff, #ff00aa); --vivid-gradient-alt: linear-gradient(135deg, #ff00aa, #00ffd5); }
+.aurora-theme { --vivid-bg-dark: #001a12; --vivid-bg-gradient: linear-gradient(135deg, #001a12, #003d29); --vivid-surface: #00261a; --vivid-surface-alt: #003d29; --vivid-primary: #00bc87; --vivid-secondary: #00a2ff; --vivid-accent: #e0ff00; --vivid-gradient-primary: linear-gradient(135deg, #00bc87, #00a2ff); --vivid-gradient-alt: linear-gradient(135deg, #00a2ff, #e0ff00); }
+.ember-theme { --vivid-bg-dark: #1a0800; --vivid-bg-gradient: linear-gradient(135deg, #1a0800, #3d1200); --vivid-surface: #261100; --vivid-surface-alt: #331500; --vivid-primary: #ff5900; --vivid-secondary: #ff0053; --vivid-accent: #fff200; --vivid-gradient-primary: linear-gradient(135deg, #ff5900, #ff0053); --vivid-gradient-alt: linear-gradient(135deg, #ff0053, #fff200); }
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) { h1 { font-size: 2rem !important; } .card, .cardBox, .dialog { border-radius: 10px !important; } }
+@media (max-width: 480px) { #loginPage .padded-left.padded-right.padded-bottom-page.margin-auto-y { width: 85% !important; padding: 30px !important; } }
