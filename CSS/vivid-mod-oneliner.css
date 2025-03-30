@@ -37,12 +37,83 @@ body, html { background: var(--vivid-bg-gradient) fixed !important; color: var(-
 .backgroundContainer, .backgroundContainer:not(.withBackdrop):not(.backgroundContainer-transparent), .noBackdropTransparency .detailPageSecondaryContainer { background: var(--vivid-bg-gradient) fixed !important; }
 .layout-tv .paddedMainContent, .layout-mobile .paddedMainContent, .layout-desktop .paddedMainContent { max-width: var(--vivid-content-max-width) !important; margin: 0 auto !important; padding: 0 2rem !important; }
 
-/* Header und Navigation */
-.skinHeader { background-color: transparent !important; transition: var(--vivid-transition) !important; }
+/* Header und Navigation - Verstecken der Standard-Header-Bar und Anpassung */
+.skinHeader { opacity: 0.8 !important; background-color: transparent !important; transition: var(--vivid-transition) !important; height: 70px !important; }
+.skinHeader:hover { opacity: 1 !important; }
 .headerTop { background: rgba(0, 0, 0, 0.5) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border-bottom: 1px solid var(--vivid-border) !important; }
-.headerLogo, .pageTitleWithDefaultLogo { background-image: url("https://cdn.jsdelivr.net/gh/Iwasanity-dev/Vivid@main/images/vivid-logo.png") !important; background-size: contain !important; background-repeat: no-repeat !important; filter: drop-shadow(0 0 10px rgba(10, 132, 255, 0.5)) !important; }
-.headerRight, .headerTabs { background: rgba(26, 26, 37, 0.5) !important; border-radius: var(--vivid-btn-radius) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; box-shadow: var(--vivid-shadow-soft) !important; }
-.mainDrawer { background: rgba(15, 15, 24, 0.75) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border-right: 1px solid var(--vivid-border) !important; box-shadow: var(--vivid-shadow-medium) !important; }
+
+/* Jellyfin-Logo durch Vivid ersetzen */
+.headerLogo, .pageTitleWithDefaultLogo { 
+  background-image: url("https://cdn.jsdelivr.net/gh/Iwasanity-dev/Vivid@main/images/vivid-logo.png") !important; 
+  background-size: contain !important; 
+  background-repeat: no-repeat !important; 
+  filter: drop-shadow(0 0 10px rgba(10, 132, 255, 0.5)) !important;
+  width: 120px !important;
+  height: 40px !important;
+  margin-left: 20px !important;
+}
+
+/* Verstecken des Jellyfin-Schriftzugs */
+.headerLeft .logoIcon, .headerLeft span { display: none !important; }
+
+/* Moderne Buttons für Navigation */
+.headerTabs { 
+  background: rgba(26, 26, 37, 0.7) !important; 
+  border-radius: 20px !important; 
+  backdrop-filter: blur(var(--vivid-blur)) !important; 
+  -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; 
+  box-shadow: var(--vivid-shadow-soft) !important;
+  padding: 5px 15px !important;
+  margin-left: 30px !important;
+}
+
+.headerTab {
+  border-radius: 15px !important;
+  margin: 0 5px !important;
+  padding: 8px 15px !important;
+  font-weight: var(--vivid-font-regular) !important;
+  letter-spacing: -0.01em !important;
+  transition: var(--vivid-transition) !important;
+}
+
+.headerTab.headerTabActive {
+  background: var(--vivid-primary) !important;
+  box-shadow: var(--vivid-glow-primary) !important;
+}
+
+.headerTab:hover:not(.headerTabActive) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Header rechts anpassen */
+.headerRight { 
+  background: rgba(26, 26, 37, 0.7) !important; 
+  border-radius: 20px !important; 
+  backdrop-filter: blur(var(--vivid-blur)) !important; 
+  -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; 
+  box-shadow: var(--vivid-shadow-soft) !important;
+  padding: 5px !important;
+  margin-right: 20px !important;
+}
+
+.headerButton {
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 5px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: var(--vivid-transition) !important;
+}
+
+.headerButton:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.1) !important;
+}
+
+.mainDrawer { background: rgba(15, 15, 24, 0.85) !important; backdrop-filter: blur(var(--vivid-blur)) !important; -webkit-backdrop-filter: blur(var(--vivid-blur)) !important; border-right: 1px solid var(--vivid-border) !important; box-shadow: var(--vivid-shadow-medium) !important; }
 
 /* Navigation Items */
 .navMenuOption { margin: 6px 12px !important; border-radius: var(--vivid-btn-radius) !important; transition: var(--vivid-transition) !important; overflow: hidden !important; width: 85% !important; text-align: center !important; font-weight: var(--vivid-font-light) !important; }
@@ -130,9 +201,9 @@ input:focus, select:focus, textarea:focus { border-color: var(--vivid-primary) !
   border: 1px solid rgba(255, 255, 255, 0.05) !important; 
   box-shadow: var(--vivid-shadow-intense), 0 0 0 1px rgba(255, 255, 255, 0.05) !important; 
   padding: 3rem !important; 
-  width: 400px !important; 
-  position: relative !important; 
-  z-index: 1 !important; 
+    width: 400px !important;
+    position: relative !important;
+    z-index: 1 !important;
   transform: translateY(0) !important; 
   animation: fadeInUp 1s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
@@ -192,7 +263,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--vivid-primary) !
   opacity: 0.7 !important;
   transition: var(--vivid-transition) !important;
   padding: 0.3rem 0.5rem !important;
-  display: block !important;
+    display: block !important;
   width: auto !important;
   text-align: center !important;
   margin-left: auto !important;
